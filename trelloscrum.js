@@ -33,7 +33,10 @@ $(function(){
 
 	//for storypoint picker
 	$(".card-detail-title .edit-controls").live('DOMNodeInserted',showPointPicker);
-
+	
+	//Export data to CSV
+	$(document).on('DOMNodeInserted', ".pop-over .content", addCSVbutton);
+	
 	//want: trello events
 	(function periodical(){
 		$('.list').each(list);
@@ -131,3 +134,15 @@ function showPointPicker() {
 		return false
 	}))
 };
+
+function addCSVbutton() {
+	if (!$(this).find("a.js-export-csv").length) {
+		JSONbutton = $(this).find("a.js-export-json");
+	  	JSONbutton
+	  		.clone()
+	  		.removeClass("js-export-json")
+	  		.addClass("js-export-csv")
+	  		.text("CSV")
+	  		.appendTo(JSONbutton.parent());
+	}
+}
