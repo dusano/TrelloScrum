@@ -5,8 +5,8 @@
 	"content_scripts": [
 		{
 			"matches": ["https://trello.com/*"],
-			"js": ["jquery-1.7.1.min.js","trelloscrum.js","trello2csv.js","zemanta_workload.js"],
-			"css": ["trelloscrum.css"]
+			"js": ["jquery-1.7.1.min.js","jquery-ui-1.8.18.custom.min.js","trelloscrum.js","trello2csv.js","zemanta_workload.js"],
+			"css": ["jquery-ui-1.8.18.custom.css","trelloscrum.css","zemanta_workload.css"]
 		}
 	]
 }
