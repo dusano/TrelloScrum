@@ -112,9 +112,12 @@ function addCalculateWorkloadMenuItem() {
 	  		.attr("href", "#")
 	  		.text("Workload")
 	  		.click(function() {
+	  			regex = /\/[^\/]*\/[^\/]*\/([^\/]*)\/?.*$/;
+	  			matches = regex.exec(window.document.location.pathname);
+	  			board_id = matches[1];
 	  			$.ajax({
 					type: "GET",
-					url: "https://trello.com/1/boards/4f758b58cbcf5f30554f2192/cards",
+					url: "https://trello.com/1/boards/" + board_id + "/cards",
 					success: function(cards) {
 						var dialog_div = $('<div id="workload-dialog" title="Board workload">' +
 							'<div id="workload-dialog-content">' +
